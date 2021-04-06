@@ -1,5 +1,5 @@
 
-public class Jogador {
+public abstract class Jogador {
 
 	private String nome;
 	private int xp;
@@ -15,7 +15,7 @@ public class Jogador {
 		hp = 100;
 		this.nome = nome;
 	}
-
+	
 	public int getXp() {
 		return this.xp;
 	}

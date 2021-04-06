@@ -1,7 +1,7 @@
 
 public class Jogo {
 	public static void main(String[] args) {
-		Jogador aragorn = new Jogador("Aragorn");
+		Jogador aragorn = new Guerreiro();
 		
 		
 		System.out.println("XP=" + aragorn.getXp());
