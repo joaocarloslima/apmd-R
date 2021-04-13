@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ public class MeuLabel extends JLabel {
 	private void init() {
 		this.setHorizontalAlignment(JLabel.CENTER);
 		this.setForeground(cor);
+		this.setPreferredSize(new Dimension(100, 100));
 		this.setFont(new Font(null, Font.BOLD, size));
 	}
 	
