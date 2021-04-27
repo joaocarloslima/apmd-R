@@ -8,14 +8,18 @@ import javax.swing.JOptionPane;
 public class BotaoListener implements ActionListener, MouseListener {
 
 	private MeuTextField nameTextField;
+	private StarRater rating;
 
-	public BotaoListener(MeuTextField nameTextField) {
-		this.nameTextField = nameTextField;	
+	public BotaoListener(MeuTextField nameTextField, StarRater rating) {
+		this.nameTextField = nameTextField;
+		this.rating = rating;	
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JOptionPane.showMessageDialog(null, "Nome é " + nameTextField.getText());
+		
+		JOptionPane.showMessageDialog(null, "Avalicao " + rating.getSelection());
 		
 	}
 

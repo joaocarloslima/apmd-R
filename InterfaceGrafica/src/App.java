@@ -13,8 +13,16 @@ import javax.swing.UIManager;
 
 
 public class App {
+	StarRater rating = new StarRater(10);
+	
 	
 	public static void main(String[] args) {
+		new App().init();
+		
+	}
+
+
+	private void init() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
@@ -43,10 +51,10 @@ public class App {
 		String[] cidades = {"São Paulo", "Osasco", "Diadema"};
 		janela.add(new JComboBox<String>(cidades));
 		
-		janela.add(new StarRater(10, 3.5f));
+		janela.add(rating);
 		
 		JButton botao = new JButton("Salvar");
-		botao.addActionListener(new BotaoListener(nameTextField));
+		botao.addActionListener(new BotaoListener(nameTextField, rating));
 		//botao.addMouseListener(new BotaoListener());
 		JPanel painelBotao = new JPanel(new FlowLayout());
 		janela.add(botao);
