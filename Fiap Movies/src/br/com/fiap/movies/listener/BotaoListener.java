@@ -3,6 +3,7 @@ package br.com.fiap.movies.listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import br.com.fiap.movies.dao.Dao;
 import br.com.fiap.movies.model.Filme;
 import br.com.fiap.movies.paineis.PainelCadastro;
 
@@ -10,6 +11,8 @@ import br.com.fiap.movies.paineis.PainelCadastro;
 public class BotaoListener implements ActionListener {
 
 	private PainelCadastro painelCadastro;
+	
+	private Dao dao = new Dao();
 
 	public BotaoListener(PainelCadastro painelCadastro) {
 		this.painelCadastro = painelCadastro;
@@ -27,6 +30,7 @@ public class BotaoListener implements ActionListener {
 		
 		System.out.println(filme);	
 		
+		dao.create(filme);
 
 	}
 
