@@ -9,19 +9,34 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import br.com.fiap.escola.model.Aluno;
+import br.com.fiap.escola.util.JPAUtil;
 
 public class AlunoDAO {
 	
+	EntityManager manager = JPAUtil.getManager();
+	
+	
 	public List<Aluno> buscarTodos() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("escola");
-		EntityManager manager = factory.createEntityManager();
-		
 		TypedQuery<Aluno> query = 
 				manager.createQuery("SELECT a FROM Aluno a", Aluno.class);
 		return query.getResultList();
 		//return retornarDadosDeTeste();
 	}
 	
+	public void apagar(Aluno aluno) {
+		manager.getTransaction().begin();
+		manager.remove(aluno);
+		manager.getTransaction().commit();
+	}
+
+	public void apagar(Long id) {
+		apagar(buscarPorId(id));
+	}
+
+	public Aluno buscarPorId(Long id) {
+		return manager.find(Aluno.class, id);
+	}
+
 	private List<Aluno> retornarDadosDeTeste(){
 		ArrayList<Aluno> lista = new ArrayList<Aluno>();
 		lista.add(new Aluno("Joao", 20, "3ECR"));
@@ -29,6 +44,9 @@ public class AlunoDAO {
 		lista.add(new Aluno("Marta", 21, "3ECA"));
 		return lista;
 	}
+
+
+
 	
 	
 
